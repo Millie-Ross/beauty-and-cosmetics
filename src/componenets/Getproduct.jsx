@@ -32,7 +32,6 @@ const Getproduct = () => {
 
   const imgurl="http://mambairene.alwaysdata.net/static/images/"
   return (
-
     
     <div className='row'>
       <h2>Available products</h2>
