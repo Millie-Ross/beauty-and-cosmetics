@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className="col-md-12">
             <nav className="navbar navbar-expand-lg bg-secondary">
                 <div className="container-fluid">
-                    <Link className='navbar-brand text-warning'>Beauty and Cosmetics</Link>
+                    <Link className='navbar-brand text-warning'>Liberty Library</Link>
 
                     <button className='navbar-toggler' type='button' data-bs-toggle="collapse" data-bs-target="#navbarnav">
                         <span className='navbar-toggler-icon'></span>
@@ -16,10 +16,10 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id='navbarnav'>
                         <div className="navbar-nav me-auto">
                             <div className="nav-item">
-                                <Link to='/addproduct' className='nav-link'>Add Product</Link>
+                                <Link to='/addproduct' className='nav-link'>Add Books</Link>
                             </div>
                             <div className='nav-item'>
-                                <Link to="/getproduct" className='nav-link'>Get Product</Link>
+                                <Link to="/getproduct" className='nav-link'>Get Books</Link>
                             </div>
                         </div>
                     </div>

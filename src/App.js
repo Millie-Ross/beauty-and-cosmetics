@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <header className="App-header">
-        <h1>Beauty & Cosmetics</h1>
+        <h1>Liberty Library</h1>
       </header>
       <Navbar/>
       

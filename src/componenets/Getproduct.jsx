@@ -34,6 +34,34 @@ const Getproduct = () => {
   return (
     
     <div className='row'>
+      <div className="col-md-12">
+        <div className="carousel-inner">
+      <div id='myCarousel' className='carousel slide' data-bs-ride="carousel">
+      {/* wraping carousel items */}
+      <div className="carousel-item active">
+        <img src="kc1.jpeg" alt="slide1" className='d-block w-100' height={450}/>
+        
+      </div>
+      <div className="carousel-item active">
+          <img src="kc2.jpeg" alt="slide2" className='d-block w-100' height={450} />
+
+        </div>
+        <div className="carousel-item active">
+          <img src="kc3.jpg" alt="slide3" className='d-block w-100' height={450}/>
+
+        </div>
+        {/* carousel controls */}
+        <a href="#myCarousel" className='carousel-control-prev' data-bs-slide="prev">
+          <span className="carousel-control-prev-icon bg-danger"></span>
+        </a>
+        <a href="#myCarousel" className='carousel-control-next' data-bs-slide="next">
+          <span className="carousel-control-next-icon bg-danger"></span>
+        </a>
+     </div>
+     </div>
+     
+     
+    </div>
       <h2>Available products</h2>
       <h2 className="text-warning">{loading}</h2>
       <h2 className="text-danger">{error}</h2>
@@ -55,32 +83,9 @@ const Getproduct = () => {
         </div>
       </div>
       ))}
-
-      
-      
-     <div id='myCarousel' className='carousel slide' data-bs-ride="carousel">
-      {/* wraping carousel items */}
-      <div className="carousel-item active">
-        <img src="kc1.jpeg" alt="slide1" className='d-block w-100' height={300}/>
-        
+      <div className='bg-warning'>
+        <h2>We also offer deliveries</h2>
       </div>
-      <div className="carousel-item active">
-          <img src="kc2.jpeg" alt="slide2" className='d-block w-100' height={300} />
-
-        </div>
-        <div className="carousel-item active">
-          <img src="kc3.jpg" alt="slide3" className='d-block w-100' height={300}/>
-
-        </div>
-        {/* carousel controls */}
-        <a href="#myCarousel" className='carousel-control-prev' data-bs-slide="prev">
-          <span className="carousel-control-prev-icon bg-danger"></span>
-        </a>
-        <a href="#myCarousel" className='carousel-control-next' data-bs-slide="next">
-          <span className="carousel-control-next-icon bg-danger"></span>
-        </a>
-     </div>
-     <h2 className='bg-warning'>We also offer deliveries</h2>
     </div>
     
   )
