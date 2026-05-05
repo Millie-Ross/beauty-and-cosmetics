@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    
   return (
     <div className='row'>
         <div className="col-md-12">
@@ -12,7 +14,6 @@ const Navbar = () => {
                     <button className='navbar-toggler' type='button' data-bs-toggle="collapse" data-bs-target="#navbarnav">
                         <span className='navbar-toggler-icon'></span>
                     </button>
-
                     <div className="collapse navbar-collapse" id='navbarnav'>
                         <div className="navbar-nav me-auto">
                             <div className="nav-item">
@@ -23,6 +24,8 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
+
+                    
                     <div className="navbar-nav ms-auto">
                         <div className="nav-item">
                             <Link to="/signin" className='nav-link bg-success rounded-pill'> Sign In</Link>
@@ -32,12 +35,19 @@ const Navbar = () => {
                             <Link to="/signup" className='nav-link bg-success rounded-pill'>Sign Up</Link>
                         </div>
                     </div>
+
+                    <div>
+                        <Link to='/cart' className='btn btn-outline-warning'>Cart</Link>
+                        
+                        
+                    </div>
                 </div>
             </nav>
         </div>
       
     </div>
   )
+  
 }
 
 export default Navbar

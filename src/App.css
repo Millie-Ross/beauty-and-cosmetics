@@ -38,3 +38,27 @@
     transform: rotate(360deg);
   }
 }
+
+.cart-button{
+  background: red;
+  color: white;
+  padding: 2px;
+  font-size: 12px;
+  margin-left: 4px;
+  border-radius: 50%;
+  
+}
+
+.cart-icon{
+  font-size: 1.25rem;
+}
+ .cart-badge{
+  background-color: #e74c3c;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 12px;
+  margin-left: 2px;
+  
+ }

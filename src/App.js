@@ -7,6 +7,9 @@ import Getproduct from './componenets/Getproduct';
 import Mpesa from './componenets/Mpesa';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import Navbar from './componenets/Navbar';
+import { CartProvider } from './componenets/CartContext';
+import Cart from './componenets/Cart';
+
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/getproduct' element={<Getproduct/>}/>
         <Route path='/mpesa' element={<Mpesa/>}/>
+        <Route path='/cartcontext' element={<CartProvider/>}/>
+        <Route path='/cart' element={<Cart/>}/>
 
       </Routes>
 
