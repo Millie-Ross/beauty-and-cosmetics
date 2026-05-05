@@ -62,3 +62,10 @@
   margin-left: 2px;
   
  }
+
+ .search-results {
+    z-index: 1000;
+    position: absolute;
+    /* ... rest of your style */
+}
+

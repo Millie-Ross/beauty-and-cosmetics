@@ -1,14 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import SignUp from './componenets/SignUp';
-import SignIn from './componenets/SignIn';
-import Addproduct from './componenets/Addproduct';
-import Getproduct from './componenets/Getproduct';
-import Mpesa from './componenets/Mpesa';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import Addproduct from './components/Addproduct';
+import Getproduct from './components/Getproduct';
+import Mpesa from './components/Mpesa';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import Navbar from './componenets/Navbar';
-import { CartProvider } from './componenets/CartContext';
-import Cart from './componenets/Cart';
+import Navbar from './components/Navbar';
+import { CartProvider } from './components/CartContext';
+import Cart from './components/Cart';
+import SearchBar from './components/Searchbar';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/mpesa' element={<Mpesa/>}/>
         <Route path='/cartcontext' element={<CartProvider/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/searchbar' element={<SearchBar/>}/>
 
       </Routes>
 
