@@ -1,11 +1,22 @@
 import React from 'react'
 import SearchBar from './Searchbar';
+import { useNavigate } from 'react-router-dom';
 
 
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const bookData = ["Atomic Habits", "1984", "Meditations", "Your Wish is Your Command","War","Mastery","The Art of Seduction","The 48 Laws of Power","The Laws Of Human Nature","The Subtle art of not Giving a Fuck","The Mountain is You","The Prince","Think and Grow Rich","The Rise of Me"];
+
+    const navigate = useNavigate();
+
+  const handleLogout = () => {
+    
+    localStorage.removeItem('token');
+
+    
+    navigate('/logout');
+  };
     
     
   return (
@@ -30,6 +41,16 @@ const Navbar = () => {
                         </div>
                     </div>
 
+                    {/* 4. Log Out Button */}
+            <div className="nav-item mx-1">
+              <button 
+                className="btn btn-outline-danger btn-sm" 
+                onClick={()=> navigate('logout')}
+              >
+                Log Out
+              </button>
+            </div>
+
                     
                     <div className="navbar-nav ms-auto">
                         <div className="nav-item">
@@ -50,14 +71,6 @@ const Navbar = () => {
             </nav>
         </div>
     </div>
-
-        {/* SECTION 2: The Search Bar (Directly below the Navbar) */}
-      <div className="row justify-content-center bg-light py-3 border-bottom g-0">
-        <div className="col-md-6 col-sm-10">
-          <SearchBar data={bookData} />
-        </div>
-        </div>
-    
     </>
   )
   

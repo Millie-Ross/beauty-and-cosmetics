@@ -53,11 +53,11 @@ export function CartProvider({ children }) {
     );
 }
 
-// 2. Custom hook for consuming context
+
 export const useCart = () => {
     const context = useContext(CartContext);
     if (!context) {
-        // Fix: 'Error' must be capitalized
+    
         throw new Error('useCart must be used within a CartProvider');
     }
     return context;

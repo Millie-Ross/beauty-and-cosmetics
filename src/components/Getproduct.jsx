@@ -1,18 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// Import useCart hook
 import { useCart } from './CartContext'; 
+import BackToTopButton from './BackToTopButton';
 
 const Getproduct = () => {
   const navigate = useNavigate();
   
-  // Fix 1: Hook must be inside the component
   const { addToCart } = useCart();
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState("");
   const [error, setError] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const getProduct = async () => {
     setLoading("Please wait, we are retrieving products....");
@@ -37,17 +37,17 @@ const Getproduct = () => {
     <div className='container-fluid'>
       <div className='row'>
         <div className="col-md-12 mb-4">
-          {/* Fix 2: Corrected Carousel Structure */}
+    
           <div id='myCarousel' className='carousel slide' data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="club1.jpeg" alt="slide1" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
+                <img src="club4.webp" alt="slide1" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
               </div>
               <div className="carousel-item">
-                <img src="club2.jpeg" alt="slide2" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
+                <img src="club5.jpeg" alt="slide2" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
               </div>
               <div className="carousel-item">
-                <img src="club3.jpeg" alt="slide3" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
+                <img src="club6.webp" alt="slide3" className='d-block w-100' height={450} style={{objectFit: 'cover'}}/>
               </div>
             </div>
             
@@ -60,13 +60,29 @@ const Getproduct = () => {
           </div>
         </div>
 
+<div className="col-md-8 mx-auto mb-4">
+          <div className="input-group">
+            <input 
+              type="text" 
+              className="form-control" 
+              placeholder="Search for books here..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+        </div>
+
         <h2 className="text-center my-4">Available Books</h2>
         
         {loading && <h2 className="text-warning text-center">{loading}</h2>}
         {error && <h2 className="text-danger text-center">{error}</h2>}
 
         <div className="row">
-          {products.map((product) => (
+          {products
+            .filter((product) =>
+              product.product_name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+          .map((product) => (
             <div className="col-md-3" key={product.id || product.product_id}>
               <div className="card mb-4 shadow-sm">
                 <img 
@@ -107,6 +123,16 @@ const Getproduct = () => {
             </div>
           ))}
         </div>
+
+        <div className="App">
+      {/* Your website content here */}
+      <div style={{ height: '150vh', padding: '20px' }}>
+        <h1>Scroll down to see the button</h1>
+      </div>
+
+      {/* Render the Back to Top Button */}
+      <BackToTopButton />
+    </div>
 
         <div className='bg-warning text-center p-3 mt-4'>
           <h3>We also can deliver the books</h3>

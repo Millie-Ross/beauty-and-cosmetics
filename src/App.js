@@ -10,6 +10,8 @@ import Navbar from './components/Navbar';
 import { CartProvider } from './components/CartContext';
 import Cart from './components/Cart';
 import SearchBar from './components/Searchbar';
+import BackToTopButton from './components/BackToTopButton';
+import Logout from './components/Logout';
 
 
 function App() {
@@ -31,7 +33,9 @@ function App() {
         <Route path='/cartcontext' element={<CartProvider/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/searchbar' element={<SearchBar/>}/>
-
+        <Route path='/backtotopbutton' element={<BackToTopButton/>}/>
+        <Route path='/logout' element={<Logout/>}/>
+        
       </Routes>
 
 
