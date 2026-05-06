@@ -12,16 +12,19 @@ import Cart from './components/Cart';
 import SearchBar from './components/Searchbar';
 import BackToTopButton from './components/BackToTopButton';
 import Logout from './components/Logout';
+import Checkout from './components/Checkout';
 
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
+      <>
       <header className="App-header">
         <h1>Liberty Library</h1>
       </header>
       <Navbar/>
+      </>
       
       
       <Routes>
@@ -35,6 +38,7 @@ function App() {
         <Route path='/searchbar' element={<SearchBar/>}/>
         <Route path='/backtotopbutton' element={<BackToTopButton/>}/>
         <Route path='/logout' element={<Logout/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
         
       </Routes>
 

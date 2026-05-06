@@ -1,9 +1,13 @@
 import React from 'react'
 import { useCart } from './CartContext'
 import '../App.css'
+import { useNavigate } from 'react-router-dom';
+
 
 const Cart = () => {
     const { cart,updateQty,removeFromCart,cartCount } = useCart(); 
+    const totalAmount = cart.reduce((acc, item) => acc + (item.price * item.qty), 0); 
+    const navigate = useNavigate();                                                              
     
     return (
         <div className="cart-container">
@@ -56,8 +60,36 @@ const Cart = () => {
                     ))}
                 </div>
             )}
-        </div>
-    )
+            <div className="cart-footer">
+                <hr />
+                <div className="cart-summary">
+                    <div className="summary-row">
+                        <span>Subtotal:</span>
+                        <span>${totalAmount.toFixed(2)}</span>
+                    </div>
+                    <div className="summary-row total">
+                        <strong>Grand Total:</strong>
+                        <strong>${totalAmount.toFixed(2)}</strong>
+                    </div>
+                </div>
+
+                <div className="checkout-section">
+                    <p className="payment-info">Safe & Secure Checkout</p>
+                    <button 
+                        className="checkout-btn" 
+                        onClick={() => navigate('/checkout')}
+                    >
+                        Proceed to Payment
+                    </button>
+                    <div className="payment-methods">
+                        {/* You can add small icons here for Visa, M-Pesa, etc. */}
+                        <small>Accepted: Credit Card, PayPal, Mobile Money</small>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+);
 }
 
 export default Cart

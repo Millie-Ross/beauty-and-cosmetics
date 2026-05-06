@@ -7,12 +7,9 @@ const Logout = () => {
   useEffect(() => {
     // 1. Clear the user's session or token
     localStorage.removeItem('token'); 
-    
-    // Optional: Clear user context or state if you have a Global User Context
-    // setUser(null); 
 
-    // 2. Redirect the user back to the login page
-    navigate('/login');
+    // 2. Redirect the user back to the home/header page
+    navigate('/header');
   }, [navigate]);
 
   return (

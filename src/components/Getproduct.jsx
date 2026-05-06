@@ -127,16 +127,14 @@ const Getproduct = () => {
         <div className="App">
       {/* Your website content here */}
       <div style={{ height: '150vh', padding: '20px' }}>
-        <h1>Scroll down to see the button</h1>
+        <div className='bg-warning text-center p-3 mt-4'>
+          <h3>We also can deliver the books</h3>
+        </div>
       </div>
 
       {/* Render the Back to Top Button */}
       <BackToTopButton />
     </div>
-
-        <div className='bg-warning text-center p-3 mt-4'>
-          <h3>We also can deliver the books</h3>
-        </div>
       </div>
     </div>
   );
