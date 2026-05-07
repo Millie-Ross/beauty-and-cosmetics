@@ -62,7 +62,7 @@ const SignUp = () => {
           <input type="submit" value="Sign Up" className='btn btn-outline-primary w-100'  /><br />
           
         </form>
-        Already have an account?<Link to="/signin">SignIn</Link>
+        Already have an account?<Link to="/">SignIn</Link>
       </div>
     </div>
   )

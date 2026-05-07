@@ -13,9 +13,23 @@ import SearchBar from './components/Searchbar';
 import BackToTopButton from './components/BackToTopButton';
 import Logout from './components/Logout';
 import Checkout from './components/Checkout';
+import AdminRoute from './components/AdminRoute';
+import React, { useState, useEffect } from 'react';
+import AdminRoute from './components/AdminRoute'; 
+import Addproduct from './components/Addproduct';
+
+
+
 
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // <--- New loading state
+
+  useEffect(() => {
+    
+      setLoading(false); // Stop loading once data arrives
+  }, []);
   return (
     <BrowserRouter>
     <div className="App">
@@ -28,9 +42,13 @@ function App() {
       
       
       <Routes>
+        {/* Pass both user and loading to the route */}
+      <Route element={<AdminRoute user={user} loading={loading} />}>
+        <Route path="/addproduct" element={<AddProduct />} />
+      </Route>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/signin'element={<SignIn/>}/>
-        <Route path='/addproduct' element={<Addproduct/>}/>
+        <Route path='/'element={<SignIn/>}/>
+        
         <Route path='/getproduct' element={<Getproduct/>}/>
         <Route path='/mpesa' element={<Mpesa/>}/>
         <Route path='/cartcontext' element={<CartProvider/>}/>
@@ -39,6 +57,7 @@ function App() {
         <Route path='/backtotopbutton' element={<BackToTopButton/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/adminroute' element={<AdminRoute/>}/>
         
       </Routes>
 

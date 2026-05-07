@@ -12,10 +12,10 @@ const Navbar = () => {
 
   const handleLogout = () => {
     
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
 
     
-    navigate('/logout');
+    navigate('/');
   };
     
     
@@ -45,22 +45,14 @@ const Navbar = () => {
             <div className="nav-item mx-1">
               <button 
                 className="btn btn-outline-danger btn-sm" 
-                onClick={()=> navigate('logout')}
+                onClick={handleLogout}
               >
                 Log Out
               </button>
             </div>
 
                     
-                    <div className="navbar-nav ms-auto">
-                        <div className="nav-item">
-                            <Link to="/signin" className='nav-link bg-success rounded-pill'> Sign In</Link>
-                        </div>
-
-                        <div className='nav-item'>
-                            <Link to="/signup" className='nav-link bg-success rounded-pill'>Sign Up</Link>
-                        </div>
-                    </div>
+                    
 
                     <div>
                         <Link to='/cart' className='btn btn-outline-warning'>Cart</Link>
