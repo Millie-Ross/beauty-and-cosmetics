@@ -5,8 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
-    const bookData = ["Atomic Habits", "1984", "Meditations", "Your Wish is Your Command","War","Mastery","The Art of Seduction","The 48 Laws of Power","The Laws Of Human Nature","The Subtle art of not Giving a Fuck","The Mountain is You","The Prince","Think and Grow Rich","The Rise of Me"];
+const Navbar = ({user}) => {
+    const user1 =JSON.parse(localStorage.getItem("user"))
+
+ 
+    
 
     const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ const Navbar = () => {
     
     
   return (
-    <>
+    
     <div className='row g-0'>
         <div className="col-md-12">
             <nav className="navbar navbar-expand-lg bg-secondary">
@@ -33,7 +36,12 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id='navbarnav'>
                         <div className="navbar-nav me-auto">
                             <div className="nav-item">
+                                {user1?.role==='admin' && (
+                                    <button className='nav-link' onClick={()=>navigate("/addproduct")}>Add Books</button>
+                                )}
+                                {/* {user && user.role==='admin'?(
                                 <Link to='/addproduct' className='nav-link'>Add Books</Link>
+                                ):null} */}
                             </div>
                             <div className='nav-item'>
                                 <Link to="/getproduct" className='nav-link'>Get Books</Link>
@@ -63,7 +71,7 @@ const Navbar = () => {
             </nav>
         </div>
     </div>
-    </>
+    
   )
   
 }

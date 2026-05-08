@@ -11,16 +11,24 @@ const Checkout = () => {
     const totalAmount = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
     const handlePlaceOrder = (e) => {
-        e.preventDefault();
-        if (!paymentMethod) {
-            alert("Please select a payment method!");
-            return;
-        }
-        // Here you would typically integrate with a payment API
-        console.log(`Processing ${paymentMethod} payment for $${totalAmount}`);
+    e.preventDefault();
+    
+    if (!paymentMethod) {
+        alert("Please select a payment method!");
+        return;
+    }
+
+    if (paymentMethod === 'mpesa') {
+        // Direct to Mpesa.jsx route
+        // You can also pass the totalAmount so Mpesa knows how much to charge
+        navigate('/mpesa', { state: { amount: totalAmount } });
+    } else {
+        // Handle other payment methods (Card, PayPal, etc.)
+        console.log(`Processing ${paymentMethod} payment for Ksh${totalAmount}`);
         alert(`Thank you! Your order via ${paymentMethod} is being processed.`);
         navigate('/');
-    };
+    }
+};
 
     return (
         <div className="checkout-container">
@@ -28,7 +36,7 @@ const Checkout = () => {
             
             <div className="order-summary">
                 <h4>Order Summary ({cartCount} items)</h4>
-                <p>Total Amount: <strong>${totalAmount.toFixed(2)}</strong></p>
+                <p>Total Amount: <strong>Ksh{totalAmount.toFixed(2)}</strong></p>
             </div>
 
             <form onSubmit={handlePlaceOrder} className="payment-form">

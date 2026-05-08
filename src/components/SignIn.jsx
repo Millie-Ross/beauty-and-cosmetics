@@ -7,6 +7,7 @@ const SignIn = () => {
   const navigate=useNavigate()
   // the two states to hold the email and password
 
+
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
 
@@ -34,12 +35,14 @@ const SignIn = () => {
       if(response.data.user){
         setLoading("")
         setSuccess(response.data.message)
+         localStorage.setItem("user",JSON.stringify(response.data.user))
         navigate("/getproduct")
       }
       else{
         setLoading("")
         setSuccess()
         setError(response.data.message)
+       
       }
         
     } catch (error) {

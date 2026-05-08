@@ -28,7 +28,7 @@ const Cart = () => {
                             <div className="cart-item-details">
                                 <h3 className="cart-item-title">{item.name}</h3>
                                 <p className="cart-item-qty">Quantity: {item.qty}</p>
-                                <p className="cart-item-price">${(item.price * item.qty).toFixed(2)}</p>
+                                <p className="cart-item-price">Ksh{(item.price * item.qty).toFixed(2)}</p>
                             </div>
 
                         
@@ -65,11 +65,11 @@ const Cart = () => {
                 <div className="cart-summary">
                     <div className="summary-row">
                         <span>Subtotal:</span>
-                        <span>${totalAmount.toFixed(2)}</span>
+                        <span>Ksh{totalAmount.toFixed(2)}</span>
                     </div>
                     <div className="summary-row total">
                         <strong>Grand Total:</strong>
-                        <strong>${totalAmount.toFixed(2)}</strong>
+                        <strong>Ksh{totalAmount.toFixed(2)}</strong>
                     </div>
                 </div>
 

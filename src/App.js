@@ -13,23 +13,29 @@ import SearchBar from './components/Searchbar';
 import BackToTopButton from './components/BackToTopButton';
 import Logout from './components/Logout';
 import Checkout from './components/Checkout';
-import AdminRoute from './components/AdminRoute';
+
 import React, { useState, useEffect } from 'react';
-import AdminRoute from './components/AdminRoute'; 
-import Addproduct from './components/Addproduct';
 
 
+
+console.log("Addproduct:", Addproduct);
 
 
 
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // <--- New loading state
+    const handleLogin = (userData) => {
+    setUser(userData);
+};
 
-  useEffect(() => {
-    
-      setLoading(false); // Stop loading once data arrives
-  }, []);
+ useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+        setUser(JSON.parse(savedUser));
+    }
+    setLoading(false);
+}, []);
   return (
     <BrowserRouter>
     <div className="App">
@@ -37,17 +43,15 @@ function App() {
       <header className="App-header">
         <h1>Liberty Library</h1>
       </header>
-      <Navbar/>
+      <Navbar user={user}/>
       </>
       
       
       <Routes>
         {/* Pass both user and loading to the route */}
-      <Route element={<AdminRoute user={user} loading={loading} />}>
-        <Route path="/addproduct" element={<AddProduct />} />
-      </Route>
+     
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='/'element={<SignIn/>}/>
+       <Route path='/' element={<SignIn onLogin={handleLogin} />} />
         
         <Route path='/getproduct' element={<Getproduct/>}/>
         <Route path='/mpesa' element={<Mpesa/>}/>
@@ -57,7 +61,8 @@ function App() {
         <Route path='/backtotopbutton' element={<BackToTopButton/>}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
-        <Route path='/adminroute' element={<AdminRoute/>}/>
+        <Route path="/addproduct" element={<Addproduct/>} />
+       
         
       </Routes>
 

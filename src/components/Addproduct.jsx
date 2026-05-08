@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Addproduct = () => {
+  const user=JSON.parse(localStorage.getItem("user"))
   // four states to hold the data
   const [productname,setProductname]=useState("")
   const [productdescription,setProductdescription]=useState("")
@@ -62,7 +64,9 @@ const Addproduct = () => {
         <textarea name="" id="" cols="" rows="" className='form-control' placeholder='Decribe your product' onChange={(e)=>setProductdescription(e.target.value)}required></textarea><br />
         <input type="number" placeholder='Enter product cost' className='form-control' onChange={(e)=>setProductcost(e.target.value)}required/><br />
         <input type="file" placeholder='Choose file' className='form-control' onChange={(e)=>setFile(e.target.files[0])}required accept='image/*' /><br />
-        <button className='btn btn-outline-primary form-control'>Upload Products</button>
+        
+       <button className='btn btn-outline-warning w-100' type='submit'>Add Books</button>
+
       </form>
 
     </div>
